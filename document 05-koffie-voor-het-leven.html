@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        berekenHoeveelheid()
+        function berekenHoeveelheid() {
+            let geboortejaar = prompt("Wat is je geboortejaar?")
+            let ouderdom = prompt("Hoe oud denk je te worden?")
+            let aantalkoffie = prompt("Hoeveel koppen koffie drink je op een dag?") 
+
+            let resultaat = controle(geboortejaar,ouderdom,aantalkoffie)
+
+            if (resultaat==0) {
+                tonen(geboortejaar,ouderdom,aantalkoffie)
+            }
+
+            function controle(input1,input2,input3) {
+                if (input1==null || input2==null || input3==null) {
+                    alert("Je hebt geanuleert!")
+                 }
+                else if (input1.length==0 || input2.length==0 || input3.length==0) {
+                    alert("Je hebt niet overal een waarde ingegeven!")
+                }
+                else if (isNaN(input1)==true || isNaN(input2)==true || isNaN(input3)==true) {
+                    alert("Je hebt niet overal een getal ingegeven!")
+                 }
+                else {
+                    return 0;
+                }
+            }
+
+            function tonen(input1,input2,input3) {
+                const vandaag = new Date();
+                let jaar = vandaag.getFullYear();
+                let totaalkoffie = (input3 * 365) * input2;
+                alert(`Jouw huidige leeftijd is tussen ${jaar-input1-1} en ${(jaar-input1)}! Tegen ${aantalkoffie} kop(pen) koffie per dag zal je ${totaalkoffie} kop(pen) koffie drinken als je ${input2} jaar oud zal worden!`);;
+            }
+
+        }
+
+    </script>
+</body>
+</html>

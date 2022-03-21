@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="knopC()">Omzetten C naar F</button>
+    <button onclick="knopF()">Omzetten F naar C</button>
+    <script>
+        "use strict";
+        function knopC() {
+            let C = prompt("Hoeveel celsius wil je omzetten");
+            let controleresultaat = controle(C)
+            if (controleresultaat!=1) {
+                let F = (C*9)/5 + 32
+                alert(`${C} celsius is ${F} fahrenheit`);
+            }
+        }
+        function knopF() {
+            let F = prompt("Hoeveel fahrenheit wil je omzetten");
+            let controleresultaat = controle(F)
+            if (controleresultaat!=1) {
+                let C = ((F - 32)*5)/9
+                alert(`${F} fahrenheit is ${C} celsius`);
+            }
+        }
+        function controle(input1) {
+                if (input1==null) {
+                    alert("Je hebt geanuleert!")
+                    return 1;
+                 }
+                else if (input1.length==0) {
+                    alert("Je hebt niets ingegeven!")
+                    return 1;
+                }
+                else if (isNaN(input1)==true) {
+                    alert("Je hebt geen getal ingegeven!")
+                    return 1;
+                 }
+                else {
+                    return 0;
+      }
+        }
+    </script>
+</body>
+</html>

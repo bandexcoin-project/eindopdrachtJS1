@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        let dagnaam = ["Zondag","Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag"];
+        let vandaag = new Date();
+        let dagnummer = vandaag.getDay();
+        let dagnaamstring=dagnaam[dagnummer];
+        document.write((`Vandaag is ${dagnaamstring}.`))
+        if (dagnummer<=5 && dagnummer>=1) {
+            document.write(`<p>Het is een werkdag, aan de slag dus.</p>`)
+        }
+        else {
+            document.write(`<p>Het is weekend, even bekomen.</p>`)
+        }
+        </script>
+</body>
+</html>
