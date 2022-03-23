@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    document.write(`<h1>Scrabble punten berekenaar "Controle toch inbegrepen :)"</h1>`);
+    let alfabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    let scores = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]
+    let woord = prompt("Voor welk woord wil je een score berekenen");
+    controleresultaat = controle(woord);
+    if (controleresultaat==0) {
+        for (let i=0;i<woord.length;i++) {
+            letter = woord.charAt(i);
+            let hoofdletter = letter.toUpperCase();
+            let positieletter = alfabet.indexOf(hoofdletter);
+            document.write(`<p>${hoofdletter} - ${scores[positieletter]}</p>`);
+        }
+    }
+    document.write(`<p><b>Extra:</b> controle toch inbegrepen! Bedankt voor de duidelijke cursus :)</p>`);
+    function controle(input1) {
+        if (input1==null) {
+                    alert("Je hebt geanuleert!")
+            }
+        else if (input1.length==0) {
+                    alert("Vul minimum 1 letter in!")
+            }
+        else if (isNaN(input1)==false) {
+                    alert("Getallen zijn niet toegelaten!")
+            }
+        else {
+                    return 0;
+            }
+    }
+</script>
+</body>
+</html>
