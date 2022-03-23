@@ -1,1 +1,1 @@
-eindopdrachtJS1
+Bedankt voor de duidelijke cursus :)
