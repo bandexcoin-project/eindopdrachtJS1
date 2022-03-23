@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return false">
+        <label for="zin">Zin:</label> <br>
+        <textarea rows="1" cols="50" name="zin" id="zin"></textarea><br>
+        <label for="woord1">Zoek dit woord:</label><br>
+        <input type="text" id="woord1" name="woord1"><br>
+        <label for="woord2">Dit woord komt in de plaats:</label><br>
+        <input type="text" id="woord2" name="woord2"><br>
+        <input onclick="klikken()" type="submit" value="vervang"><br>
+        <label for="nieuwezin">De nieuwe zin:</label> <br>
+        <textarea rows="1" cols="50" name="nieuwezin" id="nieuwezin"></textarea><br>
+      </form>
+      <script>
+        "use strict";
+        function klikken() {
+                let zin =  document.getElementById("zin").value;
+                let woord1 =  document.getElementById("woord1").value;
+                let woord2 =  document.getElementById("woord2").value;
+                if (woord1.length==0 || woord2.length==0 || zin.length==0) {
+                    document.getElementById("nieuwezin").value = "Vul alle vereiste velden in!";
+                }
+                else {
+                    let zinarray = zin.split(" ");
+                let controleresultaat = controle(zinarray,woord1,woord2);
+                if (controleresultaat==1) {
+                    document.getElementById("nieuwezin").value = "Het gegeven woord is niet gevonden!";
+                }
+                else {
+                    document.getElementById("nieuwezin").value = controleresultaat;
+                }
+                }
+        }
+        function controle(input1,input2,input3) {
+            for (let i = 0; i<input1.length; i++) {
+                if (input1[i]==input2) {
+                    input1[i] = input3;
+                    let vervangenzin = input1.join(" ");
+                    return vervangenzin;
+                }
+                else {
+                    return 1;
+                }
+        }
+        }
+        //alert(`Jouw huidige leeftijd is tussen ${jaar-input1-1} en ${(jaar-input1)}! Tegen ${aantalkoffie} kop(pen) koffie per dag zal je ${totaalkoffie} kop(pen) koffie drinken als je ${input2} jaar oud zal worden!`);
+        </script>
+</body>
+</html>
