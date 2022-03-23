@@ -14,43 +14,29 @@
         <input type="text" id="woord1" name="woord1"><br>
         <label for="woord2">Dit woord komt in de plaats:</label><br>
         <input type="text" id="woord2" name="woord2"><br>
-        <input onclick="klikken()" type="submit" value="vervang"><br>
+        <input onclick="klik()" type="submit" value="vervang"><br>
         <label for="nieuwezin">De nieuwe zin:</label> <br>
         <textarea rows="1" cols="50" name="nieuwezin" id="nieuwezin"></textarea><br>
-      </form>
-      <script>
-        "use strict";
-        function klikken() {
-                let zin =  document.getElementById("zin").value;
-                let woord1 =  document.getElementById("woord1").value;
-                let woord2 =  document.getElementById("woord2").value;
-                if (woord1.length==0 || woord2.length==0 || zin.length==0) {
-                    document.getElementById("nieuwezin").value = "Vul alle vereiste velden in!";
-                }
-                else {
-                    let zinarray = zin.split(" ");
-                let controleresultaat = controle(zinarray,woord1,woord2);
-                if (controleresultaat==1) {
-                    document.getElementById("nieuwezin").value = "Het gegeven woord is niet gevonden!";
-                }
-                else {
-                    document.getElementById("nieuwezin").value = controleresultaat;
-                }
-                }
+    </form>
+    <script>
+        function klik() {
+            let zin =  document.getElementById("zin").value;
+            let woord1 =  document.getElementById("woord1").value;
+            let woord2 =  document.getElementById("woord2").value;
+            let resultaat = vervang(zin,woord1,woord2);
+            if (zin.lengt==0 || woord1.length==0 || woord2.length==0) {
+                document.getElementById("nieuwezin").value = "Gelieve overal wat in te vullen";
+            }
+            else if (zin==resultaat) {
+                document.getElementById("nieuwezin").value = "Het woord is niet gevonden of het vervang woord is hetzelfde als het zoekwoord.";
+            }
+            else {
+                document.getElementById("nieuwezin").value = resultaat;
+            }
         }
-        function controle(input1,input2,input3) {
-            for (let i = 0; i<input1.length; i++) {
-                if (input1[i]==input2) {
-                    input1[i] = input3;
-                    let vervangenzin = input1.join(" ");
-                    return vervangenzin;
-                }
-                else {
-                    return 1;
-                }
+        function vervang(input1,input2,input3) {
+            return input1.replace(input2,input3);
         }
-        }
-        //alert(`Jouw huidige leeftijd is tussen ${jaar-input1-1} en ${(jaar-input1)}! Tegen ${aantalkoffie} kop(pen) koffie per dag zal je ${totaalkoffie} kop(pen) koffie drinken als je ${input2} jaar oud zal worden!`);
-        </script>
+    </script>
 </body>
 </html>
